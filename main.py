@@ -24,8 +24,11 @@ class Main():
 		self.hello = "hello"
 		test = "test"
 		self.board = board
+		print(board)
 		self.webServer = server.server(80, self.board)
+		print('Server started')
 		self.webServer.start(True)
+		print('Server started')
 
 	def stop(self):
 		self.webServer.stop()
