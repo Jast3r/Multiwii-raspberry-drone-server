@@ -20,8 +20,6 @@ class server:
 		
 		#self.board = board
 		self.port = port
-		#global camera
-		#camera = cam
 		tornado.options.parse_command_line()
 		self.app = MainHandler()
 
@@ -75,14 +73,11 @@ class SocketHandler(tornado.websocket.WebSocketHandler):
 	cache_size = 200
 	continueReading = True
 	checkCardRunning = False
-	global camera
 
 	print('test')
-	print(camera)
 
 	def __init__(self):
 		print('tttest')
-		print(server.camera)
 
 	def check_origin(self, origin):
 		return True
@@ -129,11 +124,9 @@ information = {
 }
 
 class server:
-	def __init__(self, port, b, cam):
+	def __init__(self, port, b):
 		define("port", default=80, help="run on the given port", type=int)
 		self.port = 80
-		global camera
-		camera = cam
 		global board
 		board = b
 		tornado.options.parse_command_line()
