@@ -40,7 +40,7 @@ if __name__ == "__main__":
 	#camera.hflip = True
 	
 	start = Main()
-	MainThread = threading.Thread(target=start.start, args=(board, camera))
+	MainThread = threading.Thread(target=start.start, args=(board))
 	MainThread.start()
 	"""MainThread.join()"""
 	
