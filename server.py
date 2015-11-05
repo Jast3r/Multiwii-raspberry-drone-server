@@ -12,9 +12,6 @@ import json
 
 from tornado.options import define, options
 
-
-camera = False
-
 class server:
 	def __init__(self, port):
 		
@@ -115,7 +112,6 @@ import json
 
 from tornado.options import define, options
 
-camera = False
 board  = False
 information = {
 	'record': False,
@@ -256,21 +252,6 @@ class ChatSocketHandler(tornado.websocket.WebSocketHandler):
 					(message["data"]["left"]["deltaY"]/100)*500+1500,
 				]
 				print(board.rcData)
-		
-		if message["action"] == "record":
-			print "record"
-			global camera
-			if information["record"] == False:
-				if len(information["usb"]) == 1:
-					if os.path.isdir(information["usb"][0]+'/Video drone') == False:
-						os.mkdir(information["usb"][0]+'/Video drone')
-					camera.start_recording(information["usb"][0]+"/Video drone/"+time.strftime("%y-%m-%d %H.%M")+".h264")
-					information["record"] = True
-			else:
-				camera.stop_recording()
-				information["record"] = False
-
-			self.send_updates()
 
 		if message["action"] == "get_info":
 			print "get_info"
