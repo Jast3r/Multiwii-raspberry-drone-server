@@ -14,19 +14,17 @@ import encodings
 import time
 import serial
 import RPi.GPIO as GPIO
-import picamera
 
 import multiwii
 import server
 
 
 class Main():
-	def start(self, board, camera):
+	def start(self, board):
 		self.hello = "hello"
 		test = "test"
 		self.board = board
-		self.camera = camera
-		self.webServer = server.server(80, self.board, self.camera)
+		self.webServer = server.server(80, self.board)
 		self.webServer.start(True)
 
 	def stop(self):
@@ -37,9 +35,9 @@ class Main():
 if __name__ == "__main__":
 	global board
 	board = multiwii.drone('/dev/ttyUSB0')
-	camera = picamera.PiCamera()
-	camera.vflip = True
-	camera.hflip = True
+	//camera = picamera.PiCamera()
+	//camera.vflip = True
+	//camera.hflip = True
 	
 	start = Main()
 	MainThread = threading.Thread(target=start.start, args=(board, camera))
