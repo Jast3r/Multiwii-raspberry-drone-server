@@ -35,9 +35,9 @@ class Main():
 if __name__ == "__main__":
 	global board
 	board = multiwii.drone('/dev/ttyUSB0')
-	//camera = picamera.PiCamera()
-	//camera.vflip = True
-	//camera.hflip = True
+	#camera = picamera.PiCamera()
+	#camera.vflip = True
+	#camera.hflip = True
 	
 	start = Main()
 	MainThread = threading.Thread(target=start.start, args=(board, camera))
