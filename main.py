@@ -21,8 +21,6 @@ import server
 
 class Main():
 	def start(self, board):
-		self.hello = "hello"
-		test = "test"
 		self.board = board
 		print(board)
 		self.webServer = server.server(80, self.board)
