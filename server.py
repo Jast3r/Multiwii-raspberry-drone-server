@@ -127,6 +127,7 @@ class server:
 		board = b
 		tornado.options.parse_command_line()
 		self.app = Application()
+		print('Server setup Run!!')
 		#self.board = board
 		#self.port = port
 		#global camera
@@ -153,10 +154,12 @@ class server:
 				tornado.ioloop.IOLoop.instance().start()				
 			except Exception, errtxt:
 				logging.error("The server failed to start", exc_info=True)
+		print('Async handeled')
 
 	def stop(self):
 		self.started = False
 		tornado.ioloop.IOLoop.current().stop()
+		print('Server stopped')
 
 	def securityCheck(self):
 		while self.started:
